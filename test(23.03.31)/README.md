@@ -1,8 +1,9 @@
 spring 기초 설정
- Type : Gradle-Groovy
+ Type : Maven
  packaging : War
  Java Version : 11
  Spring Boot Version : 2.7.10
+// 아직 git igonore 설정 뭘로해야할지 몰라서 전체 코드 다 세팅함.
 
 
 간단한 회원가입 폼
