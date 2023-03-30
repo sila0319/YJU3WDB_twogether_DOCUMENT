@@ -29,7 +29,7 @@ public class UsersDAO {
 		
 		String sql = "INSERT INTO users(id, pw) VALUES(?, ?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
+		System.out.println("DAO 쪽에서 id pw 값" + n.getId() + n.getPw());
 		try(conn; pstmt) {
 			pstmt.setString(1,  n.getId());
 			pstmt.setString(2,  n.getPw());
