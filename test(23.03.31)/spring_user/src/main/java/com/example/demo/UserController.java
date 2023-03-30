@@ -36,7 +36,6 @@ public class UserController {
 	public String addUsers(@RequestBody Users user, Model m) {
 	   
 	   try {
-	      System.out.println("con에서 받아옴" + user.getId() + user.getPw());
 	      dao.addUsers(user);
 	   } catch (Exception e) {
 	      e.printStackTrace();
