@@ -1,7 +1,6 @@
 package com.example.users;
 
 public class Users {
-
 	private String id;
 	private String pw;
 	public String getId() {

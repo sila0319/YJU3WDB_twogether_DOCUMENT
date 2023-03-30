@@ -7,9 +7,9 @@ import java.sql.PreparedStatement;
 import org.springframework.stereotype.Component;
 
 
+
 @Component
 public class UsersDAO {
-	
 	final String JDBC_DRIVER = "org.h2.Driver";
 	final String JDBC_URL = "jdbc:h2:tcp://localhost/~/jwbookdb";
 	
@@ -31,9 +31,8 @@ public class UsersDAO {
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
 		try(conn; pstmt) {
-			pstmt.setString(1, n.getId());
-			pstmt.setString(2, n.getPw());
-
+			pstmt.setString(1,  n.getId());
+			pstmt.setString(2,  n.getPw());
 			pstmt.executeUpdate();
 		}
 	}

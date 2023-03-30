@@ -1,21 +1,47 @@
 package com.example.demo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.users.Users;
+import com.example.users.UsersDAO;
+
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/")
 public class UserController {
-
-	@GetMapping("/join")
-	public String join() {
-		return "join";
-	}
+	final UsersDAO dao = new UsersDAO();
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@PostMapping("/join/users")
-	public String adduser() {
+	
+	@GetMapping("/login")
+	public String login() {
 		return "login";
 	}
+	
+	@GetMapping("/join")
+	public String join() {
+		return  "join";
+	}
+	
+	@PostMapping("/add")
+	public String addUsers(@ModelAttribute Users users, Model m) {
+		
+		try {
+		dao.addUsers(users);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:/login";
+	}
+	
+
 }
