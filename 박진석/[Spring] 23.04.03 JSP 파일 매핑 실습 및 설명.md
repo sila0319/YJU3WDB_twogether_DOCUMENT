@@ -18,19 +18,20 @@
 1. [Spring Starter Project]를 사용하여 새로운 스프링 프로젝트를 생성
     - 웹 통신도 필요한 프로젝트이므로, Packaging을 War으로 설정
     - 스프링부트 버전은 2.x 버전이 안정성이 좋으므로 해당 버전 사용하는 것을 권장
+    - Dependency는 Lombok, Spring Boot DevTools, Spring Web을 지정
 2. pom.xml에 JSP, JSTL 사용을 위해 새로운 dependency를 설정.
 즉, pom.xml에 아래와 같은 코드를 `<dependencies>` 태그 내부에 작성
     - 아래 코드 작성을 완료했다면 pom.xml 우클릭한 후 [Maven] - [Update Project]를 실행
 
 ```xml
 <dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
+	<groupId>org.apache.tomcat.embed</groupId>
+	<artifactId>tomcat-embed-jasper</artifactId>
+	<scope>provided</scope>
+</dependency>
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>jstl</artifactId>
 </dependency>
 ```
 
@@ -44,7 +45,7 @@ spring.mvc.view.suffix=.jsp
 1. src/main/webapp 디렉터리 내부에 WEB-INF 폴더를 만들고, 그 폴더 내부에 views 폴더를 만듦
 2. 새로운 패키지를 src/main/java 내부에 6개의 패키지를 아래와 같이 생성
 
-![Untitled](%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%20JSP%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%B3%E1%86%B8%20998f19bd6ca24cc8ac3109b26a1365e5/Untitled.png)
+![230403-01](img/230403-01.png)
 
 # 기초 테스트 파일 구성
 
@@ -53,11 +54,11 @@ spring.mvc.view.suffix=.jsp
     
     ```html
     <h2>Hello Spring</h2>
-    	오늘 날짜와 시간은 : <%=java.time.LocalDateTime.now() %> 입니다.
+    오늘 날짜와 시간은 : <%=java.time.LocalDateTime.now()%> 입니다.
     ```
     
     - 만약 어노테이션 내부에서 오류가 난다면 아래의 두가지 방법을 사용해볼 것
-        - 맨 위에 `<%@**page** import=*"java.time.LocalDateTime"*%>` 을 삽입
+        - 맨 위에 `<%@page import="java.time.LocalDateTime"%>` 을 삽입
         - `java.time.LocalDateTime.` 까지만 작성하고, 뒤의 `now()`를 입력할 때는 n 까지만 우선 입력한 후 이클립스에서 제공하는 자동입력을 이용해서 `now()` 메서드를 입력
     - 아직은 라우팅이 되어있지 않기 때문에 서버를 실행하면 아래와 같은 오류 메시지가 나올 것임. 이를 방지하기 위해 2번 단계를 수행하자
     
@@ -105,10 +106,10 @@ spring.mvc.view.suffix=.jsp
     		return "hello";
     	}
     
-    	**@GetMapping("/hello2")
+    	@GetMapping("/hello2")
     		public String goodMorning() {
     			return "hi";
-    		}**
+    		}
     }
     ```
     
@@ -139,14 +140,14 @@ spring.mvc.view.suffix=.jsp
     <!-- olleh.jsp -->
     <%@ page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"%>
-    **<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>**
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <!-- head와 html 생략 -->
     <body>
     	<h1> olleh list 출력</h1>
     	<hr>
-    	**<c:forEach items="${olleh}" var="o">
+    	<c:forEach items="${olleh}" var="o">
     		${o}
-    	</c:forEach>**
+    	</c:forEach>
     </body>
     ```
     
@@ -154,16 +155,16 @@ spring.mvc.view.suffix=.jsp
     <!-- olleh2.jsp -->
     <%@ page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"%>
-    **<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>**
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <!-- head와 html 생략 -->
     <body>
     	<h1>olleh list 출력 (테이블 형태)</h1>
     	<hr>
-    	**<table border="1">
+    	<table border="1">
     	  <c:forEach items="${olleh}" var="o">
     		  <tr><td>${o}</td></tr>
     	  </c:forEach>
-    	</table>**
+    	</table>
     </body>
     ```
     
