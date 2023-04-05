@@ -1,12 +1,12 @@
 # 스프링 JSP 파일 매핑 연습
 
-강의 교수: 김기종
-강의 언어: JSP
-과목: 웹프로그래밍II
-날짜: 2023년 4월 3일 오후 1:00
-유형: 실습
-작성일시: 2023년 4월 3일 오후 1:15
-작성자: 박진석
+- 강의 교수: 김기종
+- 강의 언어: JSP
+- 과목: 웹프로그래밍II
+- 날짜: 2023년 4월 3일 오후 1:00
+- 유형: 실습
+- 작성일시: 2023년 4월 3일 오후 1:15
+- 작성자: 박진석
 
 # 프로젝트 기본 환경 구성
 
@@ -62,7 +62,7 @@ spring.mvc.view.suffix=.jsp
         - `java.time.LocalDateTime.` 까지만 작성하고, 뒤의 `now()`를 입력할 때는 n 까지만 우선 입력한 후 이클립스에서 제공하는 자동입력을 이용해서 `now()` 메서드를 입력
     - 아직은 라우팅이 되어있지 않기 때문에 서버를 실행하면 아래와 같은 오류 메시지가 나올 것임. 이를 방지하기 위해 2번 단계를 수행하자
     
-    ![Untitled](%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%20JSP%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%B3%E1%86%B8%20998f19bd6ca24cc8ac3109b26a1365e5/Untitled%201.png)
+    ![Untitled](img/230403-02.png)
     
 2. controller 패키지에 Exam01Controller.java 파일을 생성하고, 아래의 코드를 입력
     
@@ -91,7 +91,7 @@ spring.mvc.view.suffix=.jsp
     [Run as] - [Spring Boot App] 을 클릭하여 서버를 실행시킬 수 있음.
     - 웹 브라우저에서 [http://localhost:8080/exam01/hello](http://localhost:8080/exam01/hello) 를 입력하면 hello.jsp 파일이 실행되는 것을 확인할 수 있음
     
-    ![Untitled](%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%20JSP%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%B3%E1%86%B8%20998f19bd6ca24cc8ac3109b26a1365e5/Untitled%202.png)
+    ![Untitled](img/230403-03.png)
     
 
 # 새로운 파일 추가
@@ -188,9 +188,9 @@ spring.mvc.view.suffix=.jsp
     - 새로운 String 값을 담는 10 크기의 ArrayList `list`를 만들고, “Olleh…” 텍스트를 10개 담음. 그 후, 해당 `list`를 model 객체에 담아 `olleh` 이름으로 저장 및 전송(`addAttribute()`)
 3. 이후 각각의 주소로 입력하여 서버에 접속하면 아래와 같이 “Olleh…”가 틀에 맞춰 반복하여 출력됨을 확인할 수 있음.
 
-![Untitled](%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%20JSP%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%B3%E1%86%B8%20998f19bd6ca24cc8ac3109b26a1365e5/Untitled%203.png)
+![Untitled](img/230403-04.png)
 
-![Untitled](%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%20JSP%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%B3%E1%86%B8%20998f19bd6ca24cc8ac3109b26a1365e5/Untitled%204.png)
+![Untitled](img/230403-05.png)
 
 ## URL에서 데이터 가져오기
 
@@ -206,7 +206,7 @@ spring.mvc.view.suffix=.jsp
         - 참고로, `required = false` 속성을 입력하면 `msg` 변수가 발견되지 않아도 `Bad Request, Required String parameter 'msg' is not present` 예외를 발생치 않도록 함.
 2. 주소창에 hello4와 함께 msg=… 에 원하는 값을 넣고 접속하면 값이 바로 출력됨
 
-![Untitled](%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%20JSP%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%B3%E1%86%B8%20998f19bd6ca24cc8ac3109b26a1365e5/Untitled%205.png)
+![Untitled](img/230403-06.png)
 
 ## 더 간단히 URL 데이터 가져오기
 
@@ -233,7 +233,7 @@ spring.mvc.view.suffix=.jsp
         - URL의 `msg` 부분을 가져와 `Model` 객체 `m`에 `msg`값을 입력하고 hello5.jsp에 라우팅함
 3. 서버를 실행하면 기존의 `?msg=...` 붙이는 것 없이 바로 `/` 이후에 값을 입력해도 값이 잘 전달되는 것을 확인할 수 있음.
 
-![Untitled](%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%20JSP%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%B3%E1%86%B8%20998f19bd6ca24cc8ac3109b26a1365e5/Untitled%206.png)
+![Untitled](img/230403-07.png)
 
 # 포트 충돌 에러 해결법
 
@@ -256,13 +256,13 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 
 1. CMD를 실행하여 `netstat -ano | findstr 80` 명령어를 통해 포트번호가 80과 관련된 프로세스를 검색해 해당 포트번호의 PID를 확인
 
-![Untitled](%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%20JSP%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%B3%E1%86%B8%20998f19bd6ca24cc8ac3109b26a1365e5/Untitled%207.png)
+![Untitled](img/230403-08.png)
 
 1. `tasklist /svc /FI "PID eq 15584"` 명령어를 통해 해당 PID를 가진 프로세스 상세 정보를 확인
     - 위 예시에서는 `0.0.0.0:8080` 를 사용중인 PID가 `15584` 임을 확인하였으므로 `eq` 뒤에 숫자 `15584`를 입력하였음
 
-![Untitled](%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%20JSP%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%B3%E1%86%B8%20998f19bd6ca24cc8ac3109b26a1365e5/Untitled%208.png)
+![Untitled](img/230403-09.png)
 
 1. `taskkill /f /pid 15584` 명령어를 통해 해당 PID를 가진 프로세스를 강제로 중지시킴
 
-![Untitled](%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%20JSP%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%B3%E1%86%B8%20998f19bd6ca24cc8ac3109b26a1365e5/Untitled%209.png)
+![Untitled](img/230403-10.png)
