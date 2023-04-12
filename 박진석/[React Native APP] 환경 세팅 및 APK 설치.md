@@ -85,7 +85,7 @@
 1. 프로젝트를 파일 탐색기에서 열어 “adaptive-icon.png”, “icon.png”, “splash.png” 3개의 이미지를 변경
     - assets 폴더에서 우클릭 - [다음에서 열기] - [Explorer] 메뉴를 클릭하면 됨
     - 수정할 때, 이미지의 가로*세로 크기는 일치해야 하므로, 제작할 때 주의할 것.
-        - **adaptive-icon.png 및 icon.png:**1024px * 1024px
+        - **adaptive-icon.png 및 icon.png:** 1024px * 1024px
         - **splash.png:** 1284px * 2778px
 2. 이미지 파일을 저장한 후 CMD에서 아래의 명령어 실행
     - `eas build -p android --profile preview` : 바뀐 코드를 적용하고 빌드 실행
