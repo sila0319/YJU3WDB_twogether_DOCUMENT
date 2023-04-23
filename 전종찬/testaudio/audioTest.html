@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+  </head>
+  <body>
+    <audio controls id="audio1" src="piano.mp3"></audio>
+    <input type="checkbox" id="audio1_checkbox" onchange="checkboxChanged()">
+    <label for="audio1_checkbox">audio1.mp3</label><br>
+
+    <audio controls id="audio2" src="drum.mp3"></audio>
+    <input type="checkbox" id="audio2_checkbox" onchange="checkboxChanged()">
+    <label for="audio2_checkbox">audio2.mp3</label><br>
+
+    <audio controls id="audio3" src="base.mp3"></audio>
+    <input type="checkbox" id="audio3_checkbox" onchange="checkboxChanged()">
+    <label for="audio3_checkbox">audio3.mp3</label><br>
+
+    <button onclick="playAudio()">전체 재생</button>
+    <button onclick="stopAudio()">전체 멈춤</button>
+    <button onclick="playSelectedAudios()">선택 재생</button>
+
+
+    <script>
+      var audio1 = document.getElementById("audio1");
+      var audio2 = document.getElementById("audio2");
+
+      function playAudio() {
+        if (audio1.paused || audio2.paused) {
+            audio1.currentTime=4;
+            audio2.currentTime=0;
+            audio3.currentTime=0.8;
+            audio1.play();
+            audio2.play();
+            audio3.play();
+        } 
+      }
+
+      function stopAudio(){
+        audio1.pause();
+        audio2.pause();
+        audio3.pause();
+      }
+      function playSelectedAudios() {
+        if (document.getElementById("audio1_checkbox").checked) {
+            audio1.currentTime=4;
+            audio1.play();
+        }
+
+        if (document.getElementById("audio2_checkbox").checked) {
+            audio2.currentTime=0;
+            audio2.play();
+        }
+
+        if (document.getElementById("audio3_checkbox").checked) {
+            audio3.currentTime=0.5;
+            audio3.play();
+        }
+      }
+    </script>
+  </body>
+</html>
